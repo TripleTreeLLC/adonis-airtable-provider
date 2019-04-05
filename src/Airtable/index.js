@@ -41,6 +41,7 @@ class Airtable {
       console.log("opening new airtable connection");
       connection = new Connection({ apiKey: apiKey }).base(baseId);
       this.bases[baseId] = connection;
+        console.log(this.bases);
       return connection;
     }
   }
@@ -137,7 +138,7 @@ class Airtable {
         return record.fields;
       })
       .catch(err => {
-        console.log("error: ", err);
+        console.log("airtable update record error: ", err);
         return;
       });
   }
